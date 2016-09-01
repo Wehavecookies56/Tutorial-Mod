@@ -27,7 +27,7 @@ public class ModItems {
     }
 
     public static void registerRenders() {
-        registerRender(tutorialItem);
+        //registerRender(tutorialItem);
     }
 
     public static void registerRender(Item item) {
