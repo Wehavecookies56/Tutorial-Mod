@@ -5,3 +5,6 @@ itemGroup.tab_tutorial=Tutorial Mod
 
 #Items
 item.tutorial_item.name=Tutorial Item
+
+#Blocks
+tile.tutorial_block.name=Tutorial Block

@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import uk.co.weahavecookies56.tutorialmod.block.ModBlocks;
 import uk.co.weahavecookies56.tutorialmod.item.ModItems;
 import uk.co.weahavecookies56.tutorialmod.proxy.CommonProxy;
 import uk.co.weahavecookies56.tutorialmod.tab.CreativeTabTutorial;
@@ -29,6 +30,7 @@ public class TutorialMod {
     public void preInit(FMLPreInitializationEvent event) {
         tabTutorial = new CreativeTabTutorial(CreativeTabs.getNextID(), "tab_tutorial");
         ModItems.preInit();
+        ModBlocks.preInit();
         proxy.preInit(event);
     }
 
