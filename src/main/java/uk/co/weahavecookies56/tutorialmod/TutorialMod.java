@@ -1,6 +1,7 @@
 package uk.co.weahavecookies56.tutorialmod;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -42,7 +43,7 @@ public class TutorialMod {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
+        MinecraftForge.EVENT_BUS.register(new TutorialModEventHandler());
         proxy.postInit(event);
     }
 }
