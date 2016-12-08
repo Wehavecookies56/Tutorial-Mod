@@ -30,15 +30,15 @@ public class ItemTutorialItem extends ItemSword {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer player, EnumHand hand) {
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand hand) {
         if (!worldIn.isRemote) {
-            player.addChatComponentMessage(new TextComponentString("Right clicked"));
+            player.sendMessage(new TextComponentString("Right clicked"));
         }
-        return super.onItemRightClick(itemStackIn, worldIn, player, hand);
+        return super.onItemRightClick(worldIn, player, hand);
     }
 
     @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+    public EnumActionResult onItemUse(EntityPlayer playerIn, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (world.getBlockState(pos).getBlock() == Blocks.GRASS) {
             world.setBlockState(pos, Blocks.DIAMOND_BLOCK.getDefaultState());
             return EnumActionResult.SUCCESS;

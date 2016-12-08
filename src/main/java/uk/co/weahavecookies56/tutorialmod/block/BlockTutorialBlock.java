@@ -51,7 +51,7 @@ public class BlockTutorialBlock extends Block {
 
     @Override
     public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
-        worldIn.spawnEntityInWorld(new EntityBlaze(worldIn));
+        worldIn.spawnEntity(new EntityBlaze(worldIn));
         super.onBlockDestroyedByExplosion(worldIn, pos, explosionIn);
     }
 
@@ -62,7 +62,7 @@ public class BlockTutorialBlock extends Block {
     }
 
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
         if (worldIn.isRemote) {
             Minecraft.getMinecraft().displayGuiScreen(new GuiInventory(playerIn));
         } else {
@@ -90,7 +90,7 @@ public class BlockTutorialBlock extends Block {
 
     @Override
     public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.addChatMessage(new TextComponentString("Walked on block"));
+        entityIn.sendMessage(new TextComponentString("Walked on block"));
         super.onEntityWalk(worldIn, pos, entityIn);
     }
 

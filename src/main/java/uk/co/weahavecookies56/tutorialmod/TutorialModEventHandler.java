@@ -34,7 +34,7 @@ public class TutorialModEventHandler {
     @SubscribeEvent
     public void livingDrops(LivingDropsEvent event) {
         if (event.getEntity() instanceof EntityMob) {
-            event.getDrops().add(new EntityItem(event.getEntity().worldObj, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, new ItemStack(ModItems.tutorialItem)));
+            event.getDrops().add(new EntityItem(event.getEntity().world, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, new ItemStack(ModItems.tutorialItem)));
         }
     }
 
@@ -42,7 +42,7 @@ public class TutorialModEventHandler {
     public void livingHurt(LivingHurtEvent event) {
         if (event.getSource().getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
-            if (player.getHeldItemMainhand() != null) {
+            if (player.getHeldItemMainhand() != ItemStack.EMPTY) {
                 if (player.getHeldItemMainhand().getItem() == Items.APPLE) {
                     event.setAmount(10);
                     event.getEntity().setFire(10);
@@ -63,7 +63,7 @@ public class TutorialModEventHandler {
     public void livingUpdate(LivingEvent.LivingUpdateEvent event) {
         if (event.getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getEntity();
-            if (player.getHeldItemMainhand() != null) {
+            if (player.getHeldItemMainhand() != ItemStack.EMPTY) {
                 if (player.getHeldItemMainhand().getItem() == Items.APPLE) {
                     player.setFire(5);
                 }
@@ -83,7 +83,7 @@ public class TutorialModEventHandler {
         if (event.getState().getBlock() == Blocks.DIRT) {
             event.setExpToDrop(10);
             BlockPos pos = event.getPos();
-            event.getWorld().spawnEntityInWorld(new EntityItem(event.getWorld(), pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.DIAMOND)));
+            event.getWorld().spawnEntity(new EntityItem(event.getWorld(), pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.DIAMOND)));
         }
     }
 
