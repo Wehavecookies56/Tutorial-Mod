@@ -8,3 +8,7 @@ item.tutorial_item.name=Tutorial Item
 
 #Blocks
 tile.tutorial_block.name=Tutorial Block
+
+#Gui
+gui.tooltip=Tooltip!
+gui.tooltip2=The dimension id is %1$s hooray!

@@ -1,6 +1,7 @@
 package uk.co.weahavecookies56.tutorialmod.item;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -15,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import uk.co.weahavecookies56.tutorialmod.TutorialMod;
+import uk.co.weahavecookies56.tutorialmod.client.gui.GuiTutorial;
 
 import java.util.List;
 
@@ -33,6 +35,8 @@ public class ItemTutorialItem extends ItemSword {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand hand) {
         if (!worldIn.isRemote) {
             player.sendMessage(new TextComponentString("Right clicked"));
+        } else {
+            Minecraft.getMinecraft().displayGuiScreen(new GuiTutorial());
         }
         return super.onItemRightClick(worldIn, player, hand);
     }
