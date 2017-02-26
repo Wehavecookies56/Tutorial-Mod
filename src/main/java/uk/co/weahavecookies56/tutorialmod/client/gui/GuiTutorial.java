@@ -55,9 +55,9 @@ public class GuiTutorial extends GuiScreen {
         GlStateManager.popMatrix();
         GlStateManager.pushMatrix();
         {
-            GlStateManager.translate((width / 2) - fontRendererObj.getStringWidth(title), centerY + 10, 0);
+            GlStateManager.translate((width / 2) - fontRenderer.getStringWidth(title), centerY + 10, 0);
             GlStateManager.scale(2, 2, 2);
-            fontRendererObj.drawString(title, 0, 0, 0x6028ff);
+            fontRenderer.drawString(title, 0, 0, 0x6028ff);
         }
         GlStateManager.popMatrix();
         //super.drawScreen(mouseX, mouseY, partialTicks);
@@ -90,7 +90,7 @@ public class GuiTutorial extends GuiScreen {
         buttonList.clear();
         buttonList.add(button1 = new GuiButton(BUTTON1, (width / 2) - 100 / 2, height - 40, 100, 20, "Close"));
         buttonList.add(arrow = new GuiButtonTutorial(ARROW, 100, 100));
-        textBox = new GuiTextField(0, fontRendererObj, 0, 0, 100, 20);
+        textBox = new GuiTextField(0, fontRenderer, 0, 0, 100, 20);
         updateButtons();
         super.initGui();
     }
