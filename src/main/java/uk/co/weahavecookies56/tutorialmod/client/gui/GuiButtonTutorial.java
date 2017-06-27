@@ -27,7 +27,7 @@ public class GuiButtonTutorial extends GuiButton {
     public void drawButton(Minecraft mc, int mouseX, int mouseY) {
         if (visible) {
             mc.renderEngine.bindTexture(texture);
-            if (mouseX >= xPosition && mouseX <= xPosition + width && mouseY >= yPosition && mouseY <= yPosition + height) {
+            if (mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height) {
                 hovered = true;
             } else {
                 hovered = false;
@@ -37,7 +37,7 @@ public class GuiButtonTutorial extends GuiButton {
             } else {
                 v = 1;
             }
-            drawTexturedModalRect(xPosition, yPosition, u, v, width, height);
+            drawTexturedModalRect(x, y, u, v, width, height);
         }
     }
 }

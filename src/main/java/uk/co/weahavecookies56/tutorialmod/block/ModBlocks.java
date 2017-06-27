@@ -17,17 +17,18 @@ import uk.co.weahavecookies56.tutorialmod.item.ItemTutorialItem;
  */
 public class ModBlocks {
 
-    public static Block tutorialBlock;
+    public static Block tutorialBlock, tutorialContainer;
 
     public static void preInit() {
 
         tutorialBlock = new BlockTutorialBlock(Material.ROCK, "tutorial_block");
-
+        tutorialContainer = new BlockTutorialContainer(Material.WOOD, "tutorial_container");
         registerBlocks();
     }
 
     public static void registerBlocks() {
         registerBlock(tutorialBlock, "tutorial_block");
+        registerBlock(tutorialContainer, "tutorial_container");
     }
 
     public static void registerBlock(Block block, String name) {
@@ -37,6 +38,7 @@ public class ModBlocks {
 
     public static void registerRenders() {
         registerRender(tutorialBlock);
+        registerRender(tutorialContainer);
     }
 
     public static void registerRender(Block block) {

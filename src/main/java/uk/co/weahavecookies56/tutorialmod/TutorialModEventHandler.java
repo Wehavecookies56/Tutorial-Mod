@@ -40,20 +40,20 @@ public class TutorialModEventHandler {
 
     @SubscribeEvent
     public void livingHurt(LivingHurtEvent event) {
-        if (event.getSource().getEntity() instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
+        if (event.getSource().getTrueSource() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
             if (player.getHeldItemMainhand() != ItemStack.EMPTY) {
                 if (player.getHeldItemMainhand().getItem() == Items.APPLE) {
                     event.setAmount(10);
                     event.getEntity().setFire(10);
                 }
-            }
         }
+    }
     }
 
     @SubscribeEvent
     public void itemPickup(PlayerEvent.ItemPickupEvent event) {
-        if (event.pickedUp.getEntityItem().getItem() == Items.DIAMOND) {
+        if (event.pickedUp.getItem().getItem() == Items.DIAMOND) {
             event.player.setFire(5);
             event.player.inventory.clear();
         }

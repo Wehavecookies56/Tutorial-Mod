@@ -8,7 +8,9 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import uk.co.weahavecookies56.tutorialmod.block.ModBlocks;
+import uk.co.weahavecookies56.tutorialmod.client.gui.GuiHandler;
 import uk.co.weahavecookies56.tutorialmod.client.gui.GuiOverlayTutorial;
 import uk.co.weahavecookies56.tutorialmod.item.ModItems;
 import uk.co.weahavecookies56.tutorialmod.proxy.CommonProxy;
@@ -38,7 +40,7 @@ public class TutorialMod {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
         proxy.init(event);
     }
 
